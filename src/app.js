@@ -14,7 +14,6 @@ import moment from 'moment';
 moment.locale('fr');
 
 const store = configureStore();
-
 const jsx = (
   <Provider store={store}>
     <AppRouter />
