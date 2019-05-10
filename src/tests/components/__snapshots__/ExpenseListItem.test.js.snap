@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseListItem with one expense 1`] = `
+<div
+  className="expense"
+>
+  <strong>
+    Gum
+  </strong>
+   - Coût: 
+  195
+   € - Date: 
+  Thursday, January 1st 1970, 1:00:00 am
+   - 
+  <Link
+    to="/edit/1"
+  >
+    Edit
+  </Link>
+</div>
+`;
