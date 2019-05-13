@@ -14,6 +14,7 @@ import moment from 'moment';
 moment.locale('fr');
 
 const store = configureStore();
+console.log('testing sourcemaps');
 const jsx = (
   <Provider store={store}>
     <AppRouter />
