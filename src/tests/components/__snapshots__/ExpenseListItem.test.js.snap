@@ -7,11 +7,11 @@ exports[`should render ExpenseListItem with one expense 1`] = `
   <strong>
     Gum
   </strong>
-  - Coût: 
+   - Coût: 
   $1.95
-  - Date: 
+   - Date: 
   Thursday, January 1st 1970, 1:00:00 am
-  - 
+   - 
   <Link
     to="/edit/1"
   >
