@@ -7,6 +7,7 @@ const filtersReducerDefaultState = {
   endDate: moment().endOf('month')
 };
 export default (state = filtersReducerDefaultState, action) => {
+  console.log('reducers-filters');
   switch (action.type) {
     case 'SET_TEXT_FILTER':
       return {
