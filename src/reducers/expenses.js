@@ -1,3 +1,5 @@
+import expenses from "../tests/fixtures/expenses";
+
 const expensesReducerDefaultSate = [];
 
 export default (state = expensesReducerDefaultSate,action) => {
@@ -17,7 +19,9 @@ export default (state = expensesReducerDefaultSate,action) => {
         } else {
           return expense;
         }
-      }) 
+      });
+    case 'SET_EXPENSES':
+      return action.expenses; 
     default:
       return state;
   }

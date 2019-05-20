@@ -68,3 +68,15 @@ test('should not edit an expense with unvalid id',() => {
   expect(state).toEqual(expenses);
 });
 
+test('should set expenses and remove preexisting expenses',() => {
+  const oldExpenses = [expenses[1]];
+  const newExpenses = [expenses[0],expenses[2]];
+  const action = {
+    type:'SET_EXPENSES',
+    expenses: newExpenses
+  }
+  let state = expensesReducer(oldExpenses,action);
+  expect(state).toEqual(newExpenses);
+
+});
+
