@@ -10,11 +10,12 @@ import 'normalize.css/normalize.css';
 import  './styles/styles.scss'
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment';
+import './firebase/firebase'
 
 moment.locale('fr');
 
 const store = configureStore();
-console.log('testing sourcemaps');
+//console.log('testing sourcemaps');
 const jsx = (
   <Provider store={store}>
     <AppRouter />
