@@ -22,7 +22,7 @@ export const startAddExpense = (expenseData = {}) => {
   }
 }
 
-export const setStartExpenses = () => {
+export const startSetExpenses = () => {
   return (dispatch) => {
     return db.ref('expenses').once('value').then((snapshot) => {
       const expenses = [];
