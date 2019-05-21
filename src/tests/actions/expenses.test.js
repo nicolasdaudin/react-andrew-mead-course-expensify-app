@@ -1,6 +1,6 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { startAddExpense, startSetExpenses, addExpense, editExpense, removeExpense, setExpenses } from '../../actions/expenses';
+import { startAddExpense, startSetExpenses, addExpense, editExpense, removeExpense, setExpenses, startRemoveExpense, startEditExpense } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import database from '../../firebase/firebase';
 
@@ -22,6 +22,23 @@ test('should setup remove expense action',() => {
   })
 });
 
+test('should remove expenses from firebase', (done) => {
+  const store = createMockStore({});
+  const id = expenses[2].id;
+  store.dispatch(startRemoveExpense({id})).then( () => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type:'REMOVE_EXPENSE',
+      id
+    })
+
+    return database.ref(`expenses/${actions[0].id}`).once('value')
+  }).then( (snapshot) => {
+    expect(snapshot.val()).toBeFalsy();
+    done();
+  })
+})
+
 test('should setup edit expense action',() => {
   const action = editExpense('123abc',{note: 'New note'});
   expect(action).toEqual({
@@ -30,6 +47,33 @@ test('should setup edit expense action',() => {
     updates: {
       note:'New note'
     }
+  })
+})
+
+test('should edit expense in firebase',(done) => {
+  const store = createMockStore({});
+  const id = expenses[1].id;
+  const updates = {
+    description: 'New desc',
+    note:'New note'
+  }
+  store.dispatch(startEditExpense(id,updates)).then( () => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type:'EDIT_EXPENSE',
+      id,
+      updates
+    })
+
+    return database.ref(`expenses/${id}`).once('value')
+  }).then ( (snapshot) => {
+    expect(snapshot.val()).toEqual({
+      amount: expenses[1].amount,
+      createdAt: expenses[1].createdAt,
+      description: 'New desc',
+      note: 'New note'
+    })
+    done();
   })
 })
 
@@ -112,3 +156,5 @@ test('should fetch the expenses from firebase', (done) => {
 
   })
 })
+
+
