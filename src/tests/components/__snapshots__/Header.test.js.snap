@@ -7,8 +7,7 @@ exports[`should render Header correctly 1`] = `
   </h1>
   <NavLink
     activeClassName="is-active"
-    exact={true}
-    to="/"
+    to="/dashboard"
   >
     Dashboard
   </NavLink>
@@ -20,12 +19,10 @@ exports[`should render Header correctly 1`] = `
     Create expense
   </NavLink>
    - 
-  <NavLink
-    activeClassName="is-active"
-    to="/help"
+  <button
+    onClick={[Function]}
   >
-    Help me!
-  </NavLink>
-   - 
+    Logout
+  </button>
 </header>
 `;

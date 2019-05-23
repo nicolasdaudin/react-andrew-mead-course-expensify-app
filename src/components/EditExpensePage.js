@@ -32,6 +32,10 @@ export class EditExpensePage extends React.Component {
 }
 
 const mapStateToProps = (state,props) => {
+  // props.match is passed to us by React via component. 
+  // when we did <PrivateRoute path='/edit/:id' component={EditExpensePage} /> in AppRouter, when passing EditExpensePage as 'component'
+  // react inject props element with match, history and location
+
   return { 
     expense : state.expenses.find( (expense) => (expense.id === props.match.params.id))
   }

@@ -13,8 +13,9 @@ const config = {
 firebase.initializeApp(config);
 
 const db = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, db as default};
+export { firebase, googleAuthProvider, db as default};
 
 // // db.ref('expenses').push({
 // //   description: 'Gum',
