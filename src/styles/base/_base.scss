@@ -1,11 +1,20 @@
+* { 
+  box-sizing: border-box; 
+  // - set the height of a component to the one wanted 
+  // (height specified in css), and removes from that the border and padding
+  // - content-box ==> default behavioe: the size of an element 
+  // of 50 px = height specified in css + padding + border 
+}
+ 
 html {
   font-size:62.5%;
 }
 
 body {
-  background:white;  
+  color: $dark-grey; 
   font-family : Helvetica,Arial,sans-serif;
   font-size: $m-size;
+  line-height: 1.6;
 }
 
 button {

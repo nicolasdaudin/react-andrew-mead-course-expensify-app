@@ -10,7 +10,8 @@ import 'normalize.css/normalize.css';
 import  './styles/styles.scss'
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment';
-import {firebase} from './firebase/firebase'
+import {firebase} from './firebase/firebase';
+import LoadingPage from './components/LoadingPage';
 
 moment.locale('fr');
 
@@ -22,10 +23,12 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(<p>Loading....</p>,document.getElementById('app'));
+ReactDOM.render(<LoadingPage />,document.getElementById('app'));
 
 let hasRendered = false;
+
 const renderApp = () => {
+  console.log('calling renderApp - hasRendered',hasRendered)
   if (!hasRendered){
     ReactDOM.render(jsx ,document.getElementById('app'));
     hasRendered = true;

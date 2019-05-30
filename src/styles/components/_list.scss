@@ -1,0 +1,69 @@
+.list-header {
+  background:$off-white;
+  border: 1px solid darken($off-white,7%);
+  color: $grey;
+  display: flex;
+  justify-content: space-between;
+  padding: $s-size $m-size;
+}
+
+.list-body {
+  // allows to not have the "screen" ends just at the end of the list of items
+  margin-bottom: $m-size;
+  @media (min-width: $desktop-breakpoint){
+    margin-bottom: $l-size;
+  }
+}
+
+.list-item {
+  display: flex;
+  flex-direction:column;
+  border:1px solid darken($off-white,7%);
+  border-top:none;
+  color:$dark-grey;
+  padding: $s-size;
+  text-decoration:none;
+  transition: background .3s ease; // adds a trnasition when we hover a list item
+  &:hover { //equivalent to adding below .list-item:hover
+    background: $off-white;
+  }
+  @media (min-width: $desktop-breakpoint){
+    align-items:center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $m-size;
+  }
+}
+
+.list-item--message { // when no expenses
+  align-items:center;
+  justify-content:center;
+  color:$grey;
+  padding: $m-size;
+  &:hover {
+    background:none;
+  }
+  
+}
+
+.list-item__title {
+  margin:0;
+  word-break: break-all; 
+  // word-break: break-all allows to break super long words in the description
+  // of the expense in several lines so that he won't get push 
+  // to the right side and overpass the limit
+}
+
+.list-item__sub-title{
+  color: $grey;
+  font-size : $font-size-small
+}
+
+.list-item__data{
+  margin: $s-size 0 0 0; // margin on mobile is really small to allow more data on screen
+  @media (min-width:$desktop-breakpoint){
+    margin: 0;
+    padding-left: $s-size;
+  }
+}
+
